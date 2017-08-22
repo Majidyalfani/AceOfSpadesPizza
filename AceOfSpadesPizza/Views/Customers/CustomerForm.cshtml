@@ -8,9 +8,10 @@
 
 @using (Html.BeginForm("Save", "Customers"))
 {
+    //create form also using bootstrap class
     <div class="form-group">
         @Html.LabelFor(m=>m.Name)
-        @Html.TextBoxFor(m=>m.Name, new {@class = "form-control"})
+       @Html.TextBoxFor(m=>m.Name, new {@class = "form-control"})
         @Html.ValidationMessageFor(m=>m.Name)
     </div>
 
@@ -28,6 +29,7 @@
         @Html.LabelFor(m => m.Quantity)
         @Html.TextBoxFor(m => m.Quantity, new { @class = "form-control" })
     </div>
+    //id as hidden fieled 
     @Html.HiddenFor(m=>m.Id)
     <button type="submit" class="btn btn-primary">Save</button>
 }

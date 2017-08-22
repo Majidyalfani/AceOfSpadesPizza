@@ -8,6 +8,7 @@ namespace AceOfSpadesPizza
         // For more information on bundling, visit http://go.microsoft.com/fwlink/?LinkId=301862
         public static void RegisterBundles(BundleCollection bundles)
         {
+            // jquery table bundels to sort order list and makes it looks nice
             bundles.Add(new ScriptBundle("~/bundles/lib").Include(
                         "~/Scripts/jquery-{version}.js",
                             "~/Scripts/bootstrap.js",

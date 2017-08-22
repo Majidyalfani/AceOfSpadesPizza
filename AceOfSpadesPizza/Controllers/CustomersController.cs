@@ -5,6 +5,7 @@ using AceOfSpadesPizza.Models;
 
 namespace AceOfSpadesPizza.Controllers
 {
+    // get customer from database
     public class CustomersController : Controller
     {
         private ApplicationDbContext _context;
@@ -19,26 +20,29 @@ namespace AceOfSpadesPizza.Controllers
             _context.Dispose();
         }
 
+        // to create form and add customer
         public ActionResult New()
         {
             return View("customerForm");
         }
-    
+    // this acction is using for send data from form into database
         [HttpPost]
         public ActionResult Save(Customer customer)
         {
             
-
+            //if id = 0 that means this is a new customer
             if(customer.Id==0)
                _context.Customers.Add(customer);
             else
             {
+                //if id!=0 update just update-data
                 var customerInDb = _context.Customers.Single(c => c.Id == customer.Id);
                 customerInDb.Name = customer.Name;
                 customerInDb.PhoneNumber = customer.PhoneNumber;
                 customerInDb.DeliveryDate = customer.DeliveryDate;
                 customerInDb.Quantity = customer.Quantity;
             }
+            //add data into database
             _context.SaveChanges();
             return RedirectToAction("Index","Customers");
         }

@@ -20,6 +20,7 @@ namespace AceOfSpadesPizza.Models
 
     public class ApplicationDbContext : IdentityDbContext<ApplicationUser>
     {
+        //this Db set reresents the customer table in our database
         public DbSet<Customer> Customers { get; set; }
 
         public ApplicationDbContext()

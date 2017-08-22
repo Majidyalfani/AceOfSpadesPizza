@@ -7,6 +7,7 @@ namespace AceOfSpadesPizza.Migrations
     {
         public override void Up()
         {
+            //using code first ET to create database.
             CreateTable(
                 "dbo.Customers",
                 c => new

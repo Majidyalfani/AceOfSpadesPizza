@@ -25,6 +25,7 @@ else
         <tbody>
         @foreach (var customer in Model)
         {
+            //Edit action for edit existing data
             <tr>
                 <td>@Html.ActionLink(customer.Name, "Edit", "Customers", new { id = customer.Id }, null)</td>
                 <td>@customer.PhoneNumber</td>
@@ -39,7 +40,10 @@ else
 
 @section scripts
 {
+    
     <script>
+        
+        ///call date table plugging to sort order list and make it nice- add serach form and few new futures 
         $(document).ready(function () {
             $("#customers").DataTable();
             
