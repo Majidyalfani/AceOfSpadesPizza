@@ -1,0 +1,48 @@
+﻿@model IEnumerable<AceOfSpadesPizza.Models.Customer>
+
+
+@{
+    ViewBag.Title = "Customers";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Orders</h2>
+@if (!Model.Any())
+{
+    <p>We don't have any customers yet.</p>
+}
+else
+{
+    <table id="customers" class="table table-bordered table-hover">
+        <thead>
+        <tr>
+            <th>Customer</th>
+            <th>Phone Number</th>
+            <th>Delivery Date</th>
+            <th>Quantity</th>
+        </tr>
+        </thead>
+        <tbody>
+        @foreach (var customer in Model)
+        {
+            <tr>
+                <td>@Html.ActionLink(customer.Name, "Edit", "Customers", new { id = customer.Id }, null)</td>
+                <td>@customer.PhoneNumber</td>
+                <td>@customer.DeliveryDate</td>
+                <td>@customer.Quantity</td>
+                
+            </tr>
+        }
+        </tbody>
+    </table>
+}
+
+@section scripts
+{
+    <script>
+        $(document).ready(function () {
+            $("#customers").DataTable();
+            
+        });
+    </script>
+}
